@@ -214,11 +214,11 @@
 
 - This gives the following output
 
-><h1>Sign In</h1>
-><form action="/sign-in-url" method="post">
->    <input type="text">
->    <input type="password">
->    <button>Login</button>
-></form>
+<h1>Sign In</h1>
+<form action="/sign-in-url" method="post">
+    <input type="text">
+    <input type="password">
+    <button>Login</button>
+</form>
 
 ### Playing with input
