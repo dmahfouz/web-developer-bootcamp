@@ -231,6 +231,6 @@
   - Colour picker: `<input type="color>`
   - And many [more](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
 - We can also add placeholders using the `<placeholder="">` attribute
-  - For example we can add a placeholder for username <input type="text" placeholder="username" id="username" name="username">
-  - Or we could add a placeholder for password <input type="password" placeholder="password">
+  - For example we can add a placeholder for username <input type="text" placeholder="username" id="username" name="username"/>
+  - Or we could add a placeholder for password <input type="password" placeholder="password"/>
     
