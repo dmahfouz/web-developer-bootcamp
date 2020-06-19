@@ -107,13 +107,13 @@
 
 - HTML output
 
-<table border="1">
+    <table border="1">
         <thead>
             <tr>
-                 <th>Image</th>
-                 <th>Name</th>
-                 <th>Type</th>
-                 <th>Evolves Into</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Evolves Into</th>
             </tr>
         </thead>
         <tbody>
@@ -137,3 +137,88 @@
             </tr>            
         </tbody>
     </table>
+
+### HTML Forms - Getting User Input
+
+#### Objectives
+- Use the `<form></form>` tag
+- Use the `<input>` tag
+- Use the `<label></label>` tag
+- Write Simple validations
+
+- Example forms
+    - Facebook - login form
+    - Twitter - sign up form
+    - Google - search box
+
+#### The `<form>` tag
+
+- Example:
+
+    ```html
+    <form action="/my-form-submitting-page" method="post">
+    <!-- All our inputs will go here -->
+    </form>
+    ```
+
+- A `<form>` tag consists of:
+  - action - the URL to send form data to
+  - method - the type of HTTP request
+
+- Note that, until we cover backend JS, our forms won't actually do anything
+- Some other things to note about the `<form>` tag
+  - The `<form>` tag is just a shell or container for different types of inputs (e.g. email form and password form, or checkboxes, buttons, drop-down menus, colour pickers, etc)
+  - There are two important attributes:
+    - A form will send a request somewhere, it sends data from the form to a server somewhere
+    - The first attribute `action="/my-form-submitting-page"` is going to specify where to send this data (is it going to Google, our sign-up page, etc)
+    - The second attribute `method="post"` specifies what type of HTTP request to send. We could send either a `GET` request (`method="get"`) or a `POST` request (`method="post"`)
+      - A `GET` request is when we're trying to 'get' data by searching or retrieving it (e.g. Google search)
+      - A `POST` request is when we're sending data that we want to be added to a database 'posted' to a server (Sign-up/login on FB/Twitter)
+
+#### The `<input>` tag
+
+- The `<input>` tag is what actually goes inside our forms
+- The `<input>` tag creates interactive controls. The "type" attribute determines the type of input
+- Examples:
+
+    ```html
+    <!-- text input -->
+    <input type="text">
+
+    <!-- date input -->
+    <input type="date">
+
+    <!-- color input -->
+    <input type="color">
+
+    <!-- file input -->
+    <input type="file">
+
+    <!-- checkbox input -->
+    <input type="checkbox">
+    ```
+
+#### A simple form
+
+- Example code:
+
+    ```html
+    <h1>Sign In</h1>
+
+    <form action="/sign-in-url" method="post">
+        <input type="text">
+        <input type="password">
+        <button>Login</button>
+    </form>
+    ```
+
+- This gives the following output
+
+><h1>Sign In</h1>
+><form action="/sign-in-url" method="post">
+>    <input type="text">
+>    <input type="password">
+>    <button>Login</button>
+></form>
+
+### Playing with input
