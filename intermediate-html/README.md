@@ -231,6 +231,42 @@
   - Colour picker: `<input type="color>`
   - And many [more](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
 - We can also add placeholders using the `<placeholder="">` attribute
-  - For example we can add a placeholder for username <input type="text" placeholder="username" id="username" name="username"/>
+  - For example we can add a placeholder for username <input type="text" placeholder="username"/>
   - Or we could add a placeholder for password <input type="password" placeholder="password"/>
-    
+
+### The Form Tag
+
+- A form `<form>` is a container for multiple `<input>` tags. Although it is possible for `<input>` tags to exist without a form, if we want to package up multiple `<input>` tags together we would use a `<form>` tag
+- A `<form>` has two attributes: `action` and `method`
+  - `action`: is where the form sends the data to
+  - `method`: what HTTP method do we use (`get`/`post`)
+- If we were to set the `action=http://wikipedia.org` and `method="GET"`, the form would send the data entered in `<input>` fields to wikipedia.org
+- Note that instead of sending the data to Wikipedia, we would actually normally send it to our own server or back-end
+- When we submit the form, the data is sent with the request. We can see this by assigning a `name` attribute to our `<input>` tags:
+
+    ```html
+    <form>
+        <input name="username" type="text" placeholder="username">
+        <input name="password" type="password" placeholder="password">
+        <input type="submit">
+    </form>
+    ```
+
+- If we then enter a username "_Rusty_", and a password "_123_", the data appended to the URL in the form of a query string, i.e.:
+
+    file:///Users/../forms.html<b>?username=Rusty&password=123</b>
+
+- Note that we don't let the user or any user doesn't see the password, 1). because of obvious security risks and 2). because we usually use a `POST` request rather than a `GET` request
+- When the data is entered in to a form and the submit button is clicked, the data is taken out of that form and a request is sent somewhere
+- If we were to change our html to have `<form action=http://www.wikipedia.org>`:
+
+    ```html
+    <form action="http://www.wikipedia.org">
+        <input name="username" type="text" placeholder="username">
+        <input name="password" type="password" placeholder="password">
+        <input type="submit">
+    </form>
+    ```
+
+    Then when we enter username 
+
