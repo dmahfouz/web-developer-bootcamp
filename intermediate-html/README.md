@@ -221,4 +221,14 @@
     <button>Login</button>
 </form>
 
-### Playing with input
+### Playing with inputs
+
+- We can add inputs using the following syntax: `<input type="text">`
+- There are multiple types of inputs that we can create including:
+  - Text input: `<input type="text">`
+  - Password: `<input type="password">`
+  - Radio buttons: `<input type="radio">`
+  - Colour picker: `<input type="color>`
+  - And many [more](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
+- We can also add placeholders using the `<placeholder="">` attribute
+    - For example we can add a placeholder for username <input type="text" placeholder="username">
