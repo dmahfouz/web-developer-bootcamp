@@ -425,3 +425,4 @@
 - First name, last name and email cannot be blank
 - Email must be a valid email address
 - **Bonus**: include validation to ensure password is between 5 and 10 characters (using only HTML5)
+- [Solution](formsExercise.html)
