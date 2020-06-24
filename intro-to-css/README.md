@@ -206,6 +206,7 @@ selector {
 - Use `color` to set text colour and `background` for background colour
 - Code example:
   - CSS:
+
     ```css
     body {
         background: #95a5a6;
@@ -219,7 +220,9 @@ selector {
         color: #ecf0f1;
     }
     ```
-  - HTML
+
+  - HTML:
+
     ```html
     <div>
         <p>Hello</p>
@@ -228,8 +231,10 @@ selector {
     ```
 
 ### Background Image
+
 - The background property can also be set to a background image
 - CSS example:
+
     ```css
     body {
         background: url(http://3dprint.com/wp-content/uploads/2014/11/-Rainbow_Ocean__by_Thelmal.jpg);
@@ -243,29 +248,189 @@ selector {
         color: #ecf0f1
     }
     ```
-- Output:
 
-<!DOCTYPE html>
-<html>
-    <head>
-	    <style type="text/css">
-		    body {
-        	    background: url(https://i.pinimg.com/564x/25/d0/7f/25d07fe50870380f45f3aa18c22773dc.jpg);
-    	    }
-	        div {
-	            background: rgba(0,0,0,.7);
-	        }
-            p {
-                color: #ecf0f1
-            }
-	    </style>
-	<title></title>
-    </head>
-    <body>
-	    <div>
-		    <p>Hello</p>
-		    <p>Goodbye</p>
-	    </div>
-    </body>
-</html>
+- When setting the background using an image URL, if the image is not big enough to fit the page, the border will tile horizontally and/or vertically
+- To prevent URL backgrounds from tiling we can use the `background-repeat: no-repeat;` option which will prevent the background image from having a repeated tiling style effect
+- If we want the background image to cover the page, we can use the `background-size: cover;` property-value option, which will stretch the image to cover the screen
 
+    ```css
+    body {
+        background: url(https://www.some-website.com/image.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    ```
+
+### CSS Borders
+
+- If we want to add a border to any of our HTML elements, we can use the following CSS:
+
+    ```css
+    h1 {
+        color: rgba(24, 156, 90, 0.616);
+        border-width: 5px;
+        border-style: solid; */
+        border: 1px dashed rgb(200, 100, 50)
+    }
+    ```
+
+- Borders defined in CSS typically have three parts:
+  - Width (size of border line in pixels)
+  - Colour (colour of border)
+  - Border-style (`solid`, `dashed`, etc)
+
+- We can write all three parts of the CSS border definitions using the following syntax:
+
+    ```css
+    h1 {
+        color: rgba(24, 156, 90, 0.616);
+        border: 1px dashed rgb(200, 100, 50)
+    }
+    ```
+
+## CSS Selectors
+
+- In this section, we're going to focus on three CSS selectors:
+  - Element
+  - ID
+  - Class
+
+- Note that there are way more options for selecting elements, which will be covered later
+
+### The Basics: Element, ID and Class
+
+#### Element Selector
+
+- Select all instances of a given element, e.g. `div`, `h1`
+- HTML:
+
+    ```html
+    <div>
+        <p>You say yes</p>
+        <p>I say no</p>
+    </div>
+
+    <div>
+        <p>You say goodbye</p>
+        <p>I say hello</p>
+    </div>
+    ```
+
+- CSS:
+
+    ```css
+    div {
+        background: purple;
+    }
+
+    p {
+        color: yellow;
+    }
+    ```
+
+- The example above sets all `div`s to have a purple background and all paragraph elements `<p>` to be yellow
+
+#### ID Selector
+
+- If we want to single out only one `<li>` or one `<h1>` element, we could use the ID selector
+- The ID selector selects an element with a given ID. Only one per page!
+
+    ```html
+    <div>
+        <p>You say yes</p>
+        <p>I say no</p>
+    </div>
+
+    <div>
+        <p>You say goodbye</p>
+        <p id="special">I say hello</p>
+    </div>
+    ```
+
+- CSS:
+
+    ```css
+    div {
+        background: purple;
+    }
+
+    #special {
+        color: yellow;
+    }
+    ```
+
+- The CSS above selects the last `<li>` element to be yellow by adding a hook which is called an `id`
+- `id`s are added as an attribute to any element such as `id="value"`
+- The CSS `id` selector references the id `"special"` using an octathorpe (hash symbol) as it would with an element such that:
+
+    ```css
+    #id {
+        property: value
+    }
+    ```
+
+- Note: id values (i.e. `="special"`) _can only be used **once**_. If the same id is used more than once, that will produce invalid HTML
+- We can however, have multiple Ids on a page as long as they don't appear more than once
+- Note that it is also possible to have an element selector and an id selector at the same time, for example, if we wanted all `<li>`s to have a red border, but the last `<li>` to have a yellow background this could be done with the following:
+
+    ```css
+    li {
+    border: 2px solid red;
+    }
+
+    #special {
+        background: yellow;
+    }
+    ```
+
+#### Class selector
+
+- Sometimes, we want to have multiple elements that look similar
+- A `class` attribute works similarly to a `id` element, except that it can be used for any number of elements on a page
+- The class selector selects all elements with a given class
+
+- HTML:
+
+    ```html
+    <div>
+        <p class="highlight">You say yes</p>
+        <p>I say no</p>
+    </div>
+
+    <div>
+        <p class="highlight">You say goodbye</p>
+        <p id>I say hello</p>
+    </div>
+    ```
+
+- CSS:
+
+    ```css
+    div {
+        background: purple;
+    }
+
+    .highlight {
+        color: yellow;
+    }
+    ```
+
+- In the above code, we apply the class `highlight` to the 1st and 3rd paragraph and reference this class with a dot: `.highlight { ... }`
+
+#### Some final notes
+
+- In our `todos.css`, we can add a strike-through (to checked items) using the `text-decoration` property
+- We can also add the `checked` attribute to our checkbox, to ensure the checkboxes are checked by default:  `<input type="checkbox" checked>`
+
+## Introduction to Chrome Inspector
+
+- In chrome, source code can be view by right-clicking and selecting 'View Source'
+- There is another feature that can be used by right-clicking and selecting 'Inspect' or 'Inspect Element', this will open the Chrome Inspector
+- In the 'Elements' tab of the Chrome Inspector, it is possible to view the HTML code for that webpage, and by hovering over each HTML element the Chrome Inspector will show you where that element corresponds to on the page and the space it takes up
+- It is also possible to view the CSS elements for a particular HTML element and looking in the 'Styles' pane to the right. This wil show all the CSS references to the element, where it be the element, class, id, or other
+- These CSS elements can be unchecked and checked and even modified to interactively show changes in the webpage
+- In the top left-hand corner of the Chrome Inspector, there is a magnifying glass or cursor icon, that when clicked allows you to select any part of the page and the Chrome Inspector will show you the corresponding HTML code
+- All of these features are useful for debugging such as looking at what space elements are taking up, how they look, what HTML is contributing to which parts of the page
+- The features of Chrome Inspector are useful for also understanding how other webpages work, for example if you're curious or want to mimic a style
+
+## More Advanced Selectors

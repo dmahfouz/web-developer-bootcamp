@@ -3,8 +3,17 @@
 } */
 
 h1 {
-    color: rgba(0, 200, 100, 0.5);
+    color: rgba(24, 156, 90, 0.616);
+    /* border-color: purple;
+    border-width: 5px;
+    border-style: solid; */
+    border: 1px dashed rgb(200, 100, 50)
 }
+/* 
+borders is css have three different parts
+width
+colour
+style */
 
 li {
     color: green;
@@ -17,4 +26,8 @@ h4 {
 
 body {
     background: pink;
+    /* background: url(https://i.pinimg.com/originals/b6/07/95/b60795007716db1797bf6245dda97361.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; */
 }
+
