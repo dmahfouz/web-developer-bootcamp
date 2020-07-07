@@ -529,3 +529,4 @@ selector {
 - Lecture should say *"Make all inputs (except the checkboxes) have a 3px red border"* **instead of** *"Make all inputs have a 3px red border"*
 - Checkboxe elements cannot be styled *directly*, if you're wondering how to style them, you can checkout this [thread](http://stackoverflow.com/questions/4148499/how-to-style-checkbox-using-css)
 - Around the 1m40 market, there is a mistake in the CSS colour property used, it should be either a `background` or `background-color` property
+

@@ -79,5 +79,22 @@ In this lecture we will talk about the following CSS selectors for text and font
 - If we click on the font, we're given the option of different weights of the font, including normal or regular weighted fonts (*Regular 400*)
 - If we then click **Select this style**, a pop-out menu shows on the right
 - If we then click the **Embed** tab, we're given a link that allows us to use the font in our `html` and `css` files
-- We can also browse fonts, by selecting **Browse fonts** in the top menu
-- 
+- We can also add other fonts, by selecting **Browse fonts** in the top menu and choosing other fonts we want to use
+
+## Introduction to the Box Model (padding, margin, border and more!)
+
+- One of the most important concepts in CSS is positioning of elements - i.e. how do we lay out a page or move a div to the top right, or make an anchor tag wider or add spacing between images
+- All of these concerns are important and are related to something call the **box model**
+- The **box model** is central to everything in CSS and is defined by MDN as the following:
+
+    > "In a document, each element is represented as a rectangular box. In CSS, each of these rectangular boxes is described using the standard *box model*. Each box has four edges: the **margin edge**, **border edge**, **padding edge** and the **content edge**
+
+- There are 4 properties or 4 different parts to every box that we can manipulate
+- Say we have a paragraph element `<p>`:
+
+| Box model component | Description | Chrome Inspector | CSS |
+|---------------------|-------------|------------------|-----|
+| **Content** | The text inside the paragraph is the **content**, this is the innermost box | *In chrome inspector this is the blue inner box* | `width: 10px;` / `height: 20%;` |
+| **Padding** | The **padding** is around the **content** and inside the **border**, this is the space between the content and the border | *In chrome inspector this is the green box* | `padding: 10px;` , `padding-left: 15px;` |
+| **Border** |  The **border** is around the **padding** but inside the **margin**, this is the border around the element **content** and **padding** | *In chrome inspector this is the orange box* | `border: 2px solid blue;` ; `border-top: ...;` |
+| **Margin** | The **margin** is around the **border** and represents the space between elements | *In chrome inspector this is the outermost, dark orange box* | `margin: 10px 5px 20px 30px;` , `margin: 9 auto;` |
