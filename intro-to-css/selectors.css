@@ -1,0 +1,47 @@
+/* Element */
+
+
+li {
+
+}
+
+/* Class */
+.hello {
+
+}
+
+/* Id */
+#name {
+
+}
+
+/* The Star Selector: uses an asterisk (*) to style everything on the page */
+* {
+    border: 1px solid lightgray;
+}
+
+/* The Descendant Select: takes two or more tag names/selectors and chains them together */
+/* E.g.: all anchor tags that are descendants of <li>s */
+
+li a {
+    color: red;
+}
+
+/* The Adjacent Selector: selects elements that come after another element (i.e.: a sibling) */
+/* E.g.: all elements that come after (on the same level as a) <h4> tag */
+
+h4 + ul {
+    border: 4px solid red;
+}
+
+/* The Attribute Selector: selects elements based off any attributes*/
+/* E.g. selection based on the href attribute, all checkboxes, etc */
+a[href="http://www.google.com"] {
+    background: lightblue;
+}
+
+/* Nth of Type: takes a number, (e.g. 3 or 5) and selects every nth of an element */
+/* e.g. every 2nd li (in a given a group) */
+li:nth-of-type(even){
+    background: peachpuff;
+}

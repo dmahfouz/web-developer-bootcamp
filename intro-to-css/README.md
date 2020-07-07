@@ -434,3 +434,98 @@ selector {
 - The features of Chrome Inspector are useful for also understanding how other webpages work, for example if you're curious or want to mimic a style
 
 ## More Advanced Selectors
+
+- Recap: CSS selectors covered so far:
+  - Element selector
+  - Id selector
+  - Class selector
+- Reference: https://code.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048
+- Note that these do not need to be memorised from the article, these will be naturally memorised over time by using the more common css selectors
+
+## Inheritance, Specificity and the Cascade
+
+- If we set a property on a parent, it can also affect a child element (via *inheritance*). For example:
+
+    ```css
+    ul {
+        color: purple;
+    }
+    ```
+
+- Will set all `<li>` elements (that are children of the `<ul>` elements) to be the colour purple
+- *Specificity* in CSS is that we can have multiple styles target the same element or tag, for example:
+
+    ```css
+    body {
+        color: red;
+    }
+    p {
+        color: green;
+    }
+    ```
+
+- Will first target the `<p>` paragraph element a red (inherited from body) but then will target the element as green, as the last styling more specifically targets the `<p>` tag
+- Whichever style is more specific/closest to the style, will determine ("win") which styling to use
+
+### Specificity calculator
+
+- Some basic rules:
+  - Element selectors such as tag names (e.g. `<p>`, `<h2>`) are not very specific
+    - Specificity score = 0-9
+  - Class selectors (e.g. `.highlight`) are more specific
+    - Specificity score = 10-99
+  - Id selectors (e.g. `#special`) are even more specific
+    - specificity score = 100-999
+
+### Summary:
+
+- **Type selectors** are not very specific, e.g.:
+
+    ```css
+    /* least specific */
+    li {
+        /* ... */
+    }
+    /* more specific */
+    li a {
+        /* ... */
+    }
+    /* even more specific */
+    li + a {
+        /* ... */
+    }
+    ```
+
+- **Class, Attribute and Psuedo-Class Selectors** are more specific (magnitude x10 bigger), e.g.:
+
+    ```css
+    .hello {
+        /* ... */
+    }
+
+    input[type="text"] {
+        /* ... */
+    }
+    ```
+
+- **ID Selector** are most specific, e.g.:
+
+    ```css
+    #special {
+        /* ... */
+    }
+    ```
+
+### References
+
+- [MDN article on Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
+- [Specificity calculator](https://specificity.keegan.st/)
+- [W3 guide on Specificity](https://www.w3.org/TR/selectors-3/#specificity)
+
+## Selectors Practice Exercise
+
+### Notes/corrections
+
+- Lecture should say *"Make all inputs (except the checkboxes) have a 3px red border"* **instead of** *"Make all inputs have a 3px red border"*
+- Checkboxe elements cannot be styled *directly*, if you're wondering how to style them, you can checkout this [thread](http://stackoverflow.com/questions/4148499/how-to-style-checkbox-using-css)
+- Around the 1m40 market, there is a mistake in the CSS colour property used, it should be either a `background` or `background-color` property
