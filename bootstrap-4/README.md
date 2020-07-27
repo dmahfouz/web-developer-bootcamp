@@ -321,3 +321,188 @@ From the docs:
 
 - This ensures that the large lorem ipsum text block is hidden for `xs` and `sm` screen sizes
 
+## Bootstrap 4: Flexbox and Layout
+
+The [Bootstrap 4 migration docs](https://getbootstrap.com/docs/4.5/migration/) mentions Flexbox many times. Although technically Flexbox exists outside of Bootstrap (4), it is strongly interlinked with the use of Bootstrap.
+
+Flexbox and the flex utilities can be very powerful. For example, a border can be set on it's own without Bootstrap, but we can use the Bootstrap border utility to make things easier.
+
+Flexbox includes many CSS properties that can move and position elements inside of a container inside of a page, which can all be done without Bootstrap. However, Bootstrap 4 comes with lots of utilities relating to flexbox, which can be found [here](https://getbootstrap.com/docs/4.5/utilities/flex/).
+
+Flexbox can be described as a model for positioning content inside of a box. With Flexbox the main-axis of our content is from left to right. Then there is also the cross-axis, which is from top to bottom.
+
+### `.justify-content-*`
+
+One way we can use Flexbox, is by defining *where* we want our elements inside, for example a border, illustrated below:
+
+```html
+<!-- style added for illustration purposes only -->
+<div class="border border-dark d-flex" style="height: 200px">
+  <button class="btn btn-info btn-lg">LARGE</button>
+  <button class="btn btn-warning">SMALL</button>
+</div>
+```
+
+The `.justify-content-*` class determines where on the main axis (left to right), elements should be positioned. By default when Flexbox is used (`.d-flex` class), `.justify-content-start` is used as default.
+
+If we change this to `.justify-content-end`:
+
+```html
+<div class="border border-dark d-flex justify-content-end" style="height: 200px">
+  ...
+</div>
+```
+
+And we inspect the `<div>` element using a border, we can see the following CSS:
+
+```css
+.justify-content-end {
+  justify-content: flex-end!important;
+}
+```
+
+We can use the following variations for our desired use-case:
+
+```html
+<div class="d-flex justify-content-start">...</div>
+<div class="d-flex justify-content-end">...</div>
+<div class="d-flex justify-content-center">...</div>
+<div class="d-flex justify-content-between">...</div>
+<div class="d-flex justify-content-around">...</div>
+```
+
+### `.align-items-*`
+
+If we want to use Flexbox to position elements on the cross-axis (top to bottom), then we can use the `.align-items-*` class. Some examples are included below:
+
+```html
+<div class="d-flex align-items-start">...</div>
+<div class="d-flex align-items-end">...</div>
+<div class="d-flex align-items-center">...</div>
+<div class="d-flex align-items-baseline">...</div>
+<div class="d-flex align-items-stretch">...</div>
+```
+
+Note that both `.justify-content-*` and `.align-items-*` are responsive and can be set for different breakpoints using `.justify-content-{size}-*` and `align-items-{size}-*` for sizes: `sm`, `md`, `lg`, `xl`.
+
+## Flexbox Utilities Pt. 2
+
+We previously discussed how Flexbox has two axes: the main axis (left to right) and the cross axis (top to bottom). We can change the direction of these using:
+
+- `.flex-row`: sets horizontal direction
+- `.flex-row-reverse`: starts horizontal direction from the opposite side
+- `.flex-column`: sets vertical direction
+- `.flex-column-reverse`: starts vertical direction from the opposite side
+
+### Other Flexbox Utilities
+
+- `.align-self`: If we want to individually align one of the items
+- `.flex-fill`: to force sibling elements into equal widths while taking up all available horizontal space
+- `.flex-grow-*` to toggle a flex item's ability to grow to fill available space
+- etc
+
+### Using Flexbox responsively
+
+We can use Flex responsively, for example if we wanted to have buttons that would stack on `xs` breakpoints (smaller screens) we could do something like the following:
+
+```html
+<div class="d-flex flex-column flex-md-row justify-content-between">
+  <button class="btn btn-dark btn-lg">Link 1</button>
+  <button class="btn btn-dark btn-lg">Link 2</button>
+  <button class="btn btn-dark btn-lg">Link 3</button>
+  <button class="btn btn-dark btn-lg">Link 4</button>
+  <button class="btn btn-dark btn-lg">Link 5</button>
+  <button class="btn btn-dark btn-lg">Link 6</button>
+</div>
+```
+
+Where we have set the `<div>` element to be a `.flex-column` as default (i.e. for `xs` screens), and then as `.flex-md-row` for sizes `md` and up (to `xl`).
+
+## Navs and Flexbox
+
+Why should you care about Flexbox? One example is Navs, which are now built with Flexbox behind the scenes, which means we can move elements around using the Flexbox utilities.
+
+From the [docs](https://getbootstrap.com/docs/4.5/components/navs/): 
+
+> ### Navs
+>
+> - Rewrote component with flexbox
+> - Dropped nearly all `>` selectors like `.nav > li > a`, we use separate classes for `.nav`s, `.nav-item`s and `.nav-link`s. This makes you HTML more flexible while bringing along increased extensibility
+
+- By default, navs use flexbox. This means the `.d-flex` class does not need to be used
+- Navs can be created with a `<nav>` element (with `<a>` anchor tags) or as a `<ul>` element with `<li>` elements. For both cases there is a `.nav` class to designate these as `nav`s
+- Below are some examples:
+
+```html
+<!-- Unordered list with list elements -->
+<ul class="nav border border-primary justify-content-around">
+  <li class="nav-item">
+      <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>
+
+<!-- Simpler nav: <nav> element with anchor tags -->
+<!-- Also set as a `flex-column` for xs screens -->
+<nav class="nav flex-column flex-sm-row justify-content-center align-items-center">
+  <a class="nav-link active" href="#">Active</a>
+  <a class="nav-link" href="#">Link</a>
+  <a class="nav-link" href="#">Link</a>
+  <a class="nav-link disabled" href="#">Disabled</a>
+</nav>
+```
+
+- There are also different configurations for the UI of the Navs such as:
+  - Tabs: `.nav-tabs`
+  - Pills: `.nav-pills`
+  - etc..
+
+## Bootstrap Grid System
+
+One of the major changes from Bootstrap 3 to Bootstrap 4, is the addition of the new breakpoint `xs`. This is somewhat confusing as `xs` already existed in Bootstrap 3, but for `<768px`. Now it is for `<576px`. Below is a table showing the changes:
+
+| Size Range (`px`) | Size/Device | Bootstrap 3 | Bootstrap 4 |
+|-------------------|-------------|-------------|-------------|
+| `<576px`          | Extra small devices | n/a | `xs` |
+| `>=576px`/ `<768px` | Small devices | `xs` | `sm` |
+| `>=768px`         | Medium devices | `sm` | `md` |
+| `>=992px`         | Large devices | `md` | `lg`|
+| `>=1200px`        | Extra large devices | `lg` | `xl` |
+
+Also to note, as previously mentioned, whereas for margin, padding , utility classes, etc., we can specify `sm`, `md`, `lg`, `xl`, to control for `xs` we have to set a default for `xs` and any specific behaviours for `sm`/`md`/`lg`/`xl` accordingly.
+
+In the Bootstrap > Layout > Grid [docs](https://getbootstrap.com/docs/4.5/layout/grid/), there are many examples and the display flex grid. The `.d-flex` class is also set automatically, but there are some things we **have** to do:
+
+- We have to make a container such as `<div class="container">...</div>` (note it can also be a `.fluid` container also)
+- It must also contain `<div>` elements `.row` class, of which each has `<div>` elements with `.col-*` class
+- For example:
+
+  ```html
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        One of three columns
+      </div>
+      <div class="col-sm">
+        One of three columns
+      </div>
+      <div class="col-sm">
+        One of three columns
+      </div>
+    </div>  
+  </div>
+  ```
+
+#### Recap
+
+- All breakpoints have changed
+- We don't reference `xs` anymore
+- We apply everything for `sm` and above, or `md` and above, etc
