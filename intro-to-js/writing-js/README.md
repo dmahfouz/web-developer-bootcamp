@@ -142,23 +142,23 @@ var name = "Robert";
 name = "Bob";
 ```
 
-## `const`, `let` and `var`
+## **`const`**, **`let`** and **`var`**
 
 ### Some history
 
-- When JavaScript was created in 1997, variables were defined using `var`
-- In 2015, `let` & `const` were introduced
+- When JavaScript was created in 1997, variables were defined using **`var`**
+- In 2015, **`let`** & **`const`** were introduced
 
 ### Browser support
 
-- As of 2018, all the major browsers support `const`
-- As of 2018, **not** all of the major browsers support `let` (such as Opera Mini, Android browser, etc)
+- As of 2018, all the major browsers support **`const`**
+- As of 2018, **not** all of the major browsers support **`let`** (such as Opera Mini, Android browser, etc)
 
-### When to use `var`, `const` and `let`
+### When to use **`var`**, **`const`** and **`let`**
 
-#### `var`
+#### **`var`**
 
-- `var` is scoped to "current execution context"
+- **`var`** is scoped to "current execution context"
   - AKA a variable's enclosing function or the global scope
 - Can be reassigned anytime
 - Initialising with a value is optional
@@ -176,7 +176,7 @@ function greet() {
 }
 ```
 
-### `let`
+### **`let`**
 
 - **Block scoped**
 - Does not create property on global window object
@@ -184,18 +184,18 @@ function greet() {
 - Can be reassigned
 - Cannot be redeclared (in same scope)
 
-### `const`
+### **`const`**
 
-- **Cannot be reassigned** (i.e. `const` stands for "constant")
+- **Cannot be reassigned** (i.e. **`const`** stands for "constant")
   - Not immutable, but variable reference cannot change
 - **Block scoped**
 - Must be initialised with a value
 - Does not create property on global window object
 - Cannot be redeclared (in same scope)
 
-The table below shows the differences between `var`, `let` & `const`:
+The table below shows the differences between **`var`**, **`let`** & **`const`**:
 
-| Property | `var` | `let` | `const` |
+| Property | **`var`** | **`let`** | **`const`** |
 |----------|-------|-------|---------|
 | Scoping  | Global / current execution context | Block | Block |
 | Reassignable? | :heavy_check_mark: | :heavy_check_mark: | :x: |
@@ -205,9 +205,9 @@ The table below shows the differences between `var`, `let` & `const`:
 
 ### Concluding notes
 
-- Prefer `const` over `let`
-- Prefer `let` over `var`
-- Use `var` pretty much never (you probably don't need it)
+- *Prefer **`const`** over **`let`***
+- *Prefer **`let`** over **`var`***
+- *Use **`var`** pretty much never* (you probably don't need it)
 
 ## `null` and `undefined`
 
@@ -221,8 +221,33 @@ The table below shows the differences between `var`, `let` & `const`:
 var name;
 var age;
 
-// null is "explicitly nothing"
+// null is "explicitly empty/nothing"
 var currentPlayer = "charlie";
 currentPlayer = null;   // game over
 ```
 
+## Useful Built-in Methods
+
+### **`clear`**
+
+- **`clear()`** is a built-in method, that can be used to clear the Javascript console
+
+### **`alert`**, **`prompt`** & **`console.log`**
+
+- **`alert`** essentially pops up (alerts) a message to the user. When it is used a pop-up will appear with the message contents, e.g.:
+
+    ```js
+    alert("This is a pop up!");
+    ```
+
+- **`console.log`** prints a message to the javascript console, e.g.:
+
+    ```js
+    console.log("Hello from the console!");
+    ```
+
+- **`prompt`** is useful for getting input from a user, e.g.:
+
+    ```js
+    var userName = prompt("What is your name?");
+    ```
