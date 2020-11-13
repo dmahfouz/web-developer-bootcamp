@@ -10,7 +10,7 @@
 - This course has been updated as of October 2020
 - Since this course was last accessed ~ August 2020, many sections have been changed and some added or removed
 - As a result, in order to avoid treading old ground (re-learning HTML/CSS sections), I will be picking up from the JavaScipt sections and revisiting the new HTML/CSS content at a later date
-- A branch `update/oct-2020-version` has been made to not lose any changes from previous version
+- Branches `update/pre-oct-2020-version` and `update/oct-2020-version` has been made to preserve content from previous version of this course
 
 ### Course changelog
 
